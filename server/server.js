@@ -8,10 +8,13 @@ import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+const CLIENT_URLS = (process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(cors({
-  origin: CLIENT_URL,
+  origin: CLIENT_URLS,
   credentials: true,
 }));
 app.use(express.json());
