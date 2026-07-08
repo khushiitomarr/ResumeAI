@@ -6,12 +6,32 @@ const resumeSchema = new mongoose.Schema({
      required: true,
      trim: true,
   },
+  name:{
+     type: String,
+     trim: true,
+  },
+  email:{
+     type: String,
+     trim: true,
+  },
+  phone:{
+     type: String,
+     trim: true,
+  },
+  linkedin:{
+     type: String,
+     trim: true,
+  },
   summary:{
      type: String,
   },
   skills:[{
      type: String,
   },],
+  template:{
+     type: String,
+     default: "modern",
+  },
   education:[{
      degree: String,
       college: String,

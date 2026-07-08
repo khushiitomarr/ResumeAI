@@ -4,10 +4,16 @@ import authRoutes from "./routes/authRoutes.js";
 import resumeRoutes from "./routes/resumeRoutes.js";
 import dotenv from "dotenv";
 dotenv.config();
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 
+app.use(cors({
+  origin: CLIENT_URL,
+  credentials: true,
+}));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/resumes', resumeRoutes);

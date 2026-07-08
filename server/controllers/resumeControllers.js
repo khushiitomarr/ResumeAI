@@ -1,6 +1,20 @@
+import Resume from "../models/resume.js";
+
 const createResume = async (req, res) => {
   try {
-    const { title, summary, skills, education, projects, experience } =
+    const {
+      title,
+      name,
+      email,
+      phone,
+      linkedin,
+      summary,
+      skills,
+      template,
+      education,
+      projects,
+      experience,
+    } =
       req.body;
 
     if (!title) {
@@ -12,8 +26,13 @@ const createResume = async (req, res) => {
 
     const resume = await Resume.create({
       title,
+      name,
+      email,
+      phone,
+      linkedin,
       summary,
       skills,
+      template,
       education,
       projects,
       experience,
@@ -83,7 +102,19 @@ const getResumeById = async (req, res) => {
 
 const updateResume = async (req, res) => {
   try {
-    const { title, summary, skills, education, projects, experience } =
+    const {
+      title,
+      name,
+      email,
+      phone,
+      linkedin,
+      summary,
+      skills,
+      template,
+      education,
+      projects,
+      experience,
+    } =
       req.body;
 
        if (!title) {
@@ -100,8 +131,13 @@ const updateResume = async (req, res) => {
       },
       {
         title,
+        name,
+        email,
+        phone,
+        linkedin,
         summary,
         skills,
+        template,
         education,
         projects,
         experience,
@@ -156,3 +192,5 @@ return res.status(500).json({
 })
   }
 }
+
+export{ createResume, getResumes, getResumeById, updateResume, deleteResume };

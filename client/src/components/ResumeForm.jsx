@@ -190,6 +190,17 @@ function ResumeForm({ formData, setFormData }) {
         <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5">
           <SectionHeader title="Personal Information" />
           <div className="grid gap-4 md:grid-cols-2">
+            <Field label="Resume Title" className="md:col-span-2">
+              <input
+                type="text"
+                name="title"
+                placeholder="Frontend Developer Resume"
+                value={formData.title}
+                onChange={handleChange}
+                className={inputStyle}
+              />
+            </Field>
+
             <Field label="Full Name">
               <input
                 type="text"
